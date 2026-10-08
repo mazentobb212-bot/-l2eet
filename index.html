@@ -3,117 +3,133 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14307a">
 <title>L2EET – Local ads in Egypt</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f2f5fb;--card:#fff;--ink:#0e1a33;--mute:#5a6785;--lapis:#14307a;--teal:#12a594;--gold:#f0a91b;--line:#dbe2f0;--on:#fff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1226;--card:#141d38;--ink:#eef2fb;--mute:#9aa7c7;--lapis:#7f9cf0;--line:#26335a;--on:#0b1226}}
-:root[data-theme="dark"]{--bg:#0b1226;--card:#141d38;--ink:#eef2fb;--mute:#9aa7c7;--lapis:#7f9cf0;--line:#26335a;--on:#0b1226}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
+:root{--bg:#f2f5fb;--card:#fff;--ink:#0e1a33;--mute:#5a6785;--lapis:#14307a;--teal:#12a594;--gold:#f0a91b;--line:#dbe2f0;--on:#fff;--sh:0 6px 24px #14307a1a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1226;--card:#141d38;--ink:#eef2fb;--mute:#9aa7c7;--lapis:#7f9cf0;--line:#26335a;--on:#0b1226;--sh:0 6px 24px #0008}}
+:root[data-theme="dark"]{--bg:#0b1226;--card:#141d38;--ink:#eef2fb;--mute:#9aa7c7;--lapis:#7f9cf0;--line:#26335a;--on:#0b1226;--sh:0 6px 24px #0008}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,system-ui,sans-serif;line-height:1.5}
-.wrap{max-width:960px;margin:0 auto;padding:0 16px}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 [hidden]{display:none!important}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.logo{font-weight:900;font-size:1.4rem;letter-spacing:-.5px}
+.logo{font-weight:900;font-size:1.45rem;letter-spacing:-.5px;background:none;border:0;color:inherit;padding:0}
 .logo i{font-style:normal;color:var(--gold)}
-.btn{border:0;border-radius:10px;padding:11px 20px;font-weight:800;background:var(--lapis);color:var(--on)}
+.btn{border:0;border-radius:12px;padding:11px 20px;font-weight:800;background:var(--lapis);color:var(--on)}
 .btn.gold{background:var(--gold);color:#0e1a33}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
-.btn.sm{padding:6px 14px;font-size:.9rem}
+.btn.sm{padding:6px 14px;font-size:.9rem}.btn.full{width:100%}
+.btn:disabled{opacity:.6}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,select,textarea{width:100%;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px}
+.err{color:#d6453b;min-height:1.4em;margin:8px 0 0}
 /* landing */
-.hero{background:linear-gradient(160deg,#14307a 0%,#0c1f55 70%);color:#fff;padding-bottom:56px;position:relative;overflow:hidden}
-.hero .logo,.hero .btn.ghost{color:#fff}
-.hero .btn.ghost{border-color:#ffffff55}
-.hero h1{font-size:clamp(2.2rem,7vw,4rem);line-height:1.05;font-weight:900;margin:36px 0 14px;max-width:14ch}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.hero{background:radial-gradient(circle at 85% 0,#2a4fb8 0,#14307a 45%,#0a1c4d 100%);color:#fff;padding-bottom:60px;position:relative;overflow:hidden}
+.hero .logo{color:#fff}.hero .btn.ghost{color:#fff;border-color:#ffffff55}
+.hero h1{font-size:clamp(2.4rem,8vw,4.4rem);line-height:1.02;font-weight:900;margin:34px 0 14px;max-width:13ch}
 .hero h1 em{font-style:normal;color:var(--gold)}
 .hero p{font-size:1.15rem;max-width:44ch;opacity:.9;margin:0 0 26px}
-.cta{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:620px}
-.role{text-align:left;border:0;border-radius:16px;padding:18px;color:#0e1a33;background:#fff}
-.role.gold{background:var(--gold)}
-.role b{display:block;font-size:1.2rem}
-.role span{font-size:.92rem;opacity:.8}
-.arch{position:absolute;right:-60px;top:70px;width:300px;height:300px;border:34px solid #ffffff12;border-bottom:0;border-radius:150px 150px 0 0}
-.how{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));padding:40px 0 20px}
-.how div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.how h3{margin:0 0 4px}.how p{margin:0;color:var(--mute)}
-.cats{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 40px}
+.cta{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:640px}
+.role{text-align:left;border:0;border-radius:18px;padding:18px;color:#0e1a33;background:#fff}
+.role.gold{background:var(--gold)}.role b{display:block;font-size:1.2rem}.role span{font-size:.92rem;opacity:.8}
+.arch{position:absolute;right:-70px;top:60px;width:320px;height:320px;border:36px solid #ffffff12;border-bottom:0;border-radius:160px 160px 0 0}
+.feat{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));padding:40px 0 16px}
+.feat div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--sh)}
+.feat h3{margin:6px 0 2px}.feat p{margin:0;color:var(--mute)}.feat .ic{font-size:1.8rem}
+.cats{display:flex;flex-wrap:wrap;gap:8px;padding:8px 0 30px}
 .cats span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 16px;font-weight:600}
+footer{color:var(--mute);text-align:center;padding:20px 16px 90px;font-size:.85rem}
 /* auth */
-.auth{max-width:440px;margin:24px auto 60px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
-.tabs{display:flex;background:var(--bg);border-radius:10px;padding:4px;margin-bottom:12px}
-.tabs button{flex:1;border:0;background:none;color:var(--mute);border-radius:8px;padding:8px;font-weight:800}
+.auth{max-width:440px;margin:20px auto 60px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--sh)}
+.tabs{display:flex;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:6px}
+.tabs button{flex:1;border:0;background:none;color:var(--mute);border-radius:9px;padding:8px;font-weight:800}
 .tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px #0003}
-label{display:block;font-weight:600;margin:12px 0 4px}
-input,select,textarea{width:100%;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.seg button{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:10px;font-weight:700}
+.seg button{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px;font-weight:700}
 .seg button[aria-pressed=true]{border-color:var(--teal);background:#12a59422}
-.err{color:#d6453b;min-height:1.4em;margin:8px 0 0}
-.fine{color:var(--mute);font-size:.82rem;margin-top:10px}
-/* app */
-.app-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-.bar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 10px}
-.bar input{flex:2 1 200px;width:auto}.bar select{flex:1 1 150px;width:auto}
-.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px}
+/* app shell */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top .nav{padding:10px 0}
+.links{display:flex;gap:4px;align-items:center}
+.links button{border:0;background:none;color:var(--mute);font-weight:700;padding:8px 12px;border-radius:10px}
+.links button[aria-current=true]{color:var(--ink);background:var(--card)}
+.av{width:38px;height:38px;border-radius:50%;background:var(--lapis);color:var(--on);display:grid;place-items:center;font-weight:900;border:0}
+.page{padding:18px 0 110px}
+h2.t{margin:0 0 2px;font-size:1.6rem}.sub{margin:0 0 14px;color:var(--mute)}
+.bar{display:grid;gap:8px;grid-template-columns:2fr 1fr 1fr;margin-bottom:10px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
 .chip{flex:none;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:5px 15px;font-weight:600}
 .chip[aria-pressed=true]{background:var(--lapis);border-color:var(--lapis);color:var(--on)}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));padding-bottom:50px}
-.ad{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.ad .top{height:8px;background:var(--teal)}
-.ad[data-c="Discounts"] .top{background:var(--gold)}
-.ad[data-c="Teachers"] .top{background:var(--lapis)}
-.ad[data-c="Courses"] .top{background:#8a5cf6}
-.ad .in{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
-.ad h3{margin:0;font-size:1.15rem;line-height:1.25}
-.ad p{margin:0;color:var(--mute);overflow-wrap:anywhere}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.ad{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--sh);cursor:pointer;position:relative}
+.ad .hd{display:flex;gap:12px;align-items:center}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.5rem;background:#12a59422;flex:none}
+.ad[data-c="Discounts"] .ico{background:#f0a91b33}.ad[data-c="Teachers"] .ico{background:#14307a22}.ad[data-c="Courses"] .ico{background:#8a5cf62a}.ad[data-c="New stores"] .ico{background:#e5484d22}
+.ad h3{margin:0;font-size:1.1rem;line-height:1.25}
 .meta{font-size:.82rem;font-weight:600;color:var(--teal)}
-.acts{display:flex;gap:8px;margin-top:auto;padding-top:8px}
-.acts a,.acts button{flex:1;text-align:center;text-decoration:none;border-radius:9px;padding:8px;font-weight:700;font-size:.92rem;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.ad p{margin:0;color:var(--mute);overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:.75rem;border-radius:99px;padding:1px 10px;font-weight:700;background:#f0a91b33}
+.pill.g{background:#12a59433}.pill.r{background:#e5484d2a}
+.acts{display:flex;gap:8px;margin-top:auto;padding-top:4px}
+.acts a,.acts button{flex:1;text-align:center;text-decoration:none;border-radius:12px;padding:9px;font-weight:700;font-size:.92rem;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
 .acts a.wa{background:#1fa855;border-color:#1fa855;color:#fff}
-.empty{text-align:center;color:var(--mute);padding:40px 10px}
-.pill{font-size:.75rem;border-radius:6px;padding:1px 8px;font-weight:700;background:#f0a91b33;color:var(--ink);align-self:flex-start}
-.pill.live{background:#12a59433}
-dialog{border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);width:min(480px,94vw);padding:22px}
-dialog::backdrop{background:#0009}
+.acts .hrt{flex:0 0 46px}
+.empty{text-align:center;color:var(--mute);padding:50px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin-bottom:14px;box-shadow:var(--sh)}
+.card h3{margin:0 0 6px}
+.pf{display:flex;gap:16px;align-items:center}
+.pf .av{width:72px;height:72px;font-size:2rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;text-align:center}
+.stats div{background:var(--bg);border-radius:14px;padding:10px}.stats b{font-size:1.4rem;display:block}.stats span{font-size:.8rem;color:var(--mute)}
 .row{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
-.note{background:#f0a91b22;border:1px solid var(--gold);border-radius:10px;padding:8px 12px;font-size:.9rem}
+.line{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.line select{width:auto}
+dialog{border:1px solid var(--line);border-radius:22px;background:var(--card);color:var(--ink);width:min(500px,94vw);padding:22px;max-height:90vh}
+dialog::backdrop{background:#0009}
+.note{background:#f0a91b22;border:1px solid var(--gold);border-radius:12px;padding:8px 12px;font-size:.9rem}
 .demo{background:var(--gold);color:#0e1a33;text-align:center;padding:6px 10px;font-size:.85rem;font-weight:600}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;background:var(--card);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));justify-content:space-around}
+.tabbar button{flex:1;border:0;background:none;color:var(--mute);font-weight:700;font-size:.72rem;display:grid;gap:0;justify-items:center;padding:4px 0}
+.tabbar button span{font-size:1.35rem;line-height:1.2}
+.tabbar button[aria-current=true]{color:var(--lapis)}
+.tabbar .plus span{background:var(--gold);color:#0e1a33;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;margin-top:-18px;box-shadow:var(--sh)}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:99px;font-weight:600;z-index:60}
+@media (max-width:700px){.links{display:none}.tabbar{display:flex}.bar{grid-template-columns:1fr 1fr}.bar input{grid-column:1/3}.hero h1{margin-top:24px}}
+@media (prefers-reduced-motion:no-preference){.ad{transition:transform .15s}.ad:hover{transform:translateY(-3px)}}
 </style>
 </head>
 <body>
-<div id="demo" class="demo" hidden>Setup needed: paste your Firebase keys at the top of the script (see the setup steps).</div>
+<div id="demo" class="demo" hidden>Setup needed: paste your Firebase keys at the top of the script.</div>
 
-<!-- LANDING -->
 <section id="landing">
 <div class="hero"><div class="arch"></div><div class="wrap">
 <nav class="nav"><span class="logo">L2<i>EET</i></span><button class="btn ghost sm" data-go="login">Log in</button></nav>
 <h1>What's new <em>near you</em> in Egypt.</h1>
-<p>New store openings, discounts, teachers and courses in your area. One place, no scrolling through noise.</p>
+<p>New store openings, discounts, teachers and courses in your area. One place, no noise.</p>
 <div class="cta">
 <button class="role" data-go="signup" data-role="customer"><b>I'm looking for deals</b><span>Browse ads near you</span></button>
 <button class="role gold" data-go="signup" data-role="advertiser"><b>I want to post an ad</b><span>Your first ad is free</span></button>
 </div></div></div>
 <div class="wrap">
-<div class="how">
-<div><h3>Find</h3><p>Pick your governorate and see only what is close to you.</p></div>
-<div><h3>Contact</h3><p>Call or message the advertiser on WhatsApp straight from the ad.</p></div>
-<div><h3>Advertise</h3><p>Shops, tutors and academies post in minutes. First ad free, extra ads paid.</p></div>
+<div class="feat">
+<div><div class="ic">📍</div><h3>Near you</h3><p>Pick your governorate and see only what is close.</p></div>
+<div><div class="ic">💬</div><h3>Contact fast</h3><p>Call or WhatsApp the advertiser from the ad.</p></div>
+<div><div class="ic">🏷️</div><h3>Advertise</h3><p>Shops, tutors and academies post in minutes. First ad free.</p></div>
 </div>
-<div class="cats"><span>Discounts</span><span>Teachers</span><span>Courses</span><span>New stores</span><span>Other</span></div>
-</div></section>
+<div class="cats"><span>🏷️ Discounts</span><span>🎓 Teachers</span><span>📚 Courses</span><span>🏬 New stores</span><span>✨ Other</span></div>
+</div><footer>L2EET · Made in Egypt</footer></section>
 
-<!-- AUTH -->
 <section id="auth" hidden><div class="wrap">
-<nav class="nav"><button class="logo" style="background:none;border:0;color:var(--ink)" data-go="landing">L2<i>EET</i></button></nav>
+<nav class="nav"><button class="logo" data-go="landing">L2<i>EET</i></button></nav>
 <div class="auth">
 <div class="tabs" role="tablist"><button role="tab" id="tSign" aria-selected="true">Sign up</button><button role="tab" id="tLog" aria-selected="false">Log in</button></div>
 <label for="em">Email</label><input id="em" type="email" autocomplete="email">
-<label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" minlength="6">
+<label for="pw">Password</label><input id="pw" type="password" minlength="6">
 <div id="signForm">
 <label>I am a</label>
 <div class="seg" id="roleSeg"><button type="button" data-r="customer" aria-pressed="true">Customer</button><button type="button" data-r="advertiser" aria-pressed="false">Advertiser</button></div>
@@ -122,69 +138,84 @@ dialog::backdrop{background:#0009}
 <label for="gv">Governorate</label><select id="gv"></select>
 </div>
 <p class="err" id="aerr"></p>
-<button class="btn" style="width:100%" id="go">Create account</button>
-<p class="fine"><button type="button" id="forgot" style="background:none;border:0;color:var(--lapis);padding:0;font-weight:600;text-decoration:underline">Forgot password?</button></p>
+<button class="btn full" id="go">Create account</button>
+<p style="margin:10px 0 0"><button type="button" id="forgot" style="background:none;border:0;color:var(--lapis);padding:0;font-weight:600;text-decoration:underline">Forgot password?</button></p>
 </div></div></section>
 
-<!-- APP -->
 <section id="app" hidden>
-<div class="app-nav"><div class="wrap"><nav class="nav">
-<span class="logo">L2<i>EET</i></span>
-<span style="display:flex;gap:8px;align-items:center">
-<button class="btn ghost sm" id="vFeed">Browse</button>
-<button class="btn ghost sm" id="vMine">My ads</button>
-<button class="btn gold sm" id="post">+ Post ad</button>
-<button class="btn ghost sm" id="out">Log out</button></span></nav></div></div>
-<div class="wrap">
-<h2 id="hi" style="margin:20px 0 0"></h2>
-<div id="feed">
-<div class="bar"><input id="q" type="search" placeholder="Search ads" aria-label="Search ads"><select id="gov" aria-label="Governorate"></select></div>
+<header class="top"><div class="wrap"><nav class="nav">
+<button class="logo" data-tab="feed">L2<i>EET</i></button>
+<div class="links" id="links"></div>
+<span style="display:flex;gap:10px;align-items:center"><button class="btn gold sm" id="post">+ Post ad</button><button class="av" id="avTop" data-tab="profile" aria-label="Profile"></button></span>
+</nav></div></header>
+<main class="wrap page">
+<div id="p-feed">
+<h2 class="t" id="hi"></h2><p class="sub" id="count"></p>
+<div class="bar"><input id="q" type="search" placeholder="Search ads" aria-label="Search ads"><select id="gov" aria-label="Governorate"></select>
+<select id="sort" aria-label="Sort"><option value="new">Newest</option><option value="end">Ending soon</option></select></div>
 <div class="chips" id="chips"></div>
 <div class="grid" id="list"></div>
 </div>
-<div id="mine" hidden><div class="grid" id="mlist" style="padding-top:14px"></div></div>
-<div class="empty" id="empty" hidden></div>
-</div></section>
+<div id="p-saved" hidden><h2 class="t">Saved</h2><p class="sub">Ads you hearted on this device.</p><div class="grid" id="slist"></div></div>
+<div id="p-mine" hidden><h2 class="t">My ads</h2><p class="sub" id="mcount"></p><div class="grid" id="mlist"></div></div>
+<div id="p-profile" hidden>
+<div class="card"><div class="pf"><div class="av" id="avBig"></div><div><h2 class="t" id="pName"></h2><span class="pill g" id="pRole"></span><div class="sub" id="pEmail" style="margin:4px 0 0"></div></div></div>
+<div class="stats"><div><b id="s1">0</b><span>Ads posted</span></div><div><b id="s2">0</b><span>Live now</span></div><div><b id="s3">0</b><span>Saved</span></div></div></div>
+<div class="card"><h3>Edit profile</h3>
+<label for="en">Name</label><input id="en" maxlength="50"><label for="ep">Phone</label><input id="ep" inputmode="tel"><label for="eg">Governorate</label><select id="eg"></select>
+<p class="err" id="perr"></p><div class="row"><button class="btn" id="saveP">Save changes</button></div></div>
+<div class="card"><h3>Settings</h3>
+<div class="line"><span>Theme</span><select id="theme"><option value="">Auto</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+<div class="line"><span>Open on my governorate</span><input type="checkbox" id="myGov" style="width:24px;height:24px"></div>
+<div class="line"><span>Password</span><button class="btn ghost sm" id="resetPw">Email me a reset link</button></div>
+<div class="line"><span>Account</span><button class="btn ghost sm" id="out">Log out</button></div></div>
+<p class="sub" style="text-align:center">L2EET v2 · Made in Egypt</p>
+</div>
+</main>
+<nav class="tabbar" id="tabbar"></nav>
+</section>
 
-<dialog id="dlg">
-<h2 style="margin:0 0 8px">Post an ad</h2>
-<div class="note" id="fee"></div>
+<dialog id="dlg"><h2 style="margin:0 0 8px">Post an ad</h2><div class="note" id="fee"></div>
 <label for="t">Title</label><input id="t" maxlength="80" placeholder="e.g. New branch opening: 30% off">
 <label for="c">Category</label><select id="c"></select>
 <label for="g">Governorate</label><select id="g"></select>
 <label for="a">Area</label><input id="a" maxlength="80" placeholder="e.g. Dokki, near the metro">
 <label for="d">Details</label><textarea id="d" rows="3" maxlength="400"></textarea>
-<label for="e">Ad ends on</label><input id="e" type="date">
+<label for="e">Ad ends on (optional)</label><input id="e" type="date">
 <p class="err" id="err"></p>
-<div class="row"><button class="btn ghost" id="cancel">Cancel</button><button class="btn" id="save">Publish ad</button></div>
-</dialog>
+<div class="row"><button class="btn ghost" id="cancel">Cancel</button><button class="btn" id="save">Publish ad</button></div></dialog>
+<dialog id="det"><div id="detBody"></div><div class="row"><button class="btn ghost" id="detX">Close</button></div></dialog>
+<div class="toast" id="toast" hidden></div>
 
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import{getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged,sendPasswordResetEmail}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import{getFirestore,doc,getDoc,setDoc,collection,query,where,onSnapshot,writeBatch,deleteDoc,increment}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import{getFirestore,doc,getDoc,setDoc,updateDoc,collection,query,where,onSnapshot,writeBatch,deleteDoc,increment}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* 1. PASTE YOUR FIREBASE KEYS HERE (Firebase console > Project settings > Your apps > Web) */
+/* PASTE YOUR FIREBASE KEYS HERE (same as before) */
 const CFG={apiKey:"AIzaSyAAeIErZDUewVsUTBG3N6Xn9FG9LRaV7yc",authDomain:"l2eet-55c5c.firebaseapp.com",projectId:"l2eet-55c5c",appId:"1:219353973551:web:6d511c317531ffb90757da"};
 
 const CATS=["Discounts","Teachers","Courses","New stores","Other"];
+const EMO={"Discounts":"🏷️","Teachers":"🎓","Courses":"📚","New stores":"🏬","Other":"✨"};
 const GOVS=["Cairo","Giza","Alexandria","Qalyubia","Dakahlia","Sharqia","Gharbia","Monufia","Beheira","Port Said","Suez","Ismailia","Fayoum","Beni Suef","Minya","Asyut","Sohag","Qena","Luxor","Aswan","Red Sea","Damietta","Kafr El Sheikh","Matrouh","North Sinai","South Sinai","New Valley"];
 const $=id=>document.getElementById(id);
 const opts=(a,f)=>(f?`<option value="">${f}</option>`:"")+a.map(x=>`<option>${x}</option>`).join("");
+const esc=s=>{const d=document.createElement("div");d.textContent=s??"";return d.innerHTML};
+const ls={get:(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const ready=!Object.values(CFG).some(v=>v.startsWith("PASTE"));
-let auth,db,user=null,profile=null,live=[],mine=[],unsubs=[],mode="signup",role="customer",cat="",view="feed",creating=false;
+let auth,db,user=null,profile=null,live=[],mine=[],unsubs=[],mode="signup",role="customer",cat="",tab="feed",creating=false,saved=ls.get("l2eet_saved",[]);
 if(ready){const app=initializeApp(CFG);auth=getAuth(app);db=getFirestore(app)}else $("demo").hidden=false;
 
-$("gv").innerHTML=opts(GOVS);$("g").innerHTML=opts(GOVS);$("gov").innerHTML=opts(GOVS,"All of Egypt");$("c").innerHTML=opts(CATS);
-$("chips").innerHTML=["All",...CATS].map((c,i)=>`<button class="chip" data-c="${i?c:""}" aria-pressed="${!i}">${c}</button>`).join("");
-const esc=s=>{const d=document.createElement("div");d.textContent=s??"";return d.innerHTML};
+function theme(v){v?document.documentElement.setAttribute("data-theme",v):document.documentElement.removeAttribute("data-theme");ls.set("l2eet_theme",v)}
+theme(ls.get("l2eet_theme",""));
+function toast(m){const t=$("toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2200)}
+["gv","g","eg"].forEach(i=>$(i).innerHTML=opts(GOVS));$("gov").innerHTML=opts(GOVS,"All of Egypt");$("c").innerHTML=opts(CATS);
+$("chips").innerHTML=["All",...CATS].map((c,i)=>`<button class="chip" data-c="${i?c:""}" aria-pressed="${!i}">${i?EMO[c]+" ":""}${c}</button>`).join("");
 const err=m=>$("aerr").textContent=m;
 function show(n){["landing","auth","app"].forEach(s=>$(s).hidden=s!==n);scrollTo(0,0)}
-function setMode(m){mode=m;$("tSign").setAttribute("aria-selected",m==="signup");$("tLog").setAttribute("aria-selected",m==="login");
- $("signForm").hidden=m!=="signup";$("go").textContent=m==="signup"?"Create account":"Log in";$("pw").autocomplete=m==="signup"?"new-password":"current-password";err("")}
+function setMode(m){mode=m;$("tSign").setAttribute("aria-selected",m==="signup");$("tLog").setAttribute("aria-selected",m==="login");$("signForm").hidden=m!=="signup";$("go").textContent=m==="signup"?"Create account":"Log in";$("pw").autocomplete=m==="signup"?"new-password":"current-password";err("")}
 function setRole(r){role=r;document.querySelectorAll("#roleSeg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.r===r))}
-document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(!b)return;
- if(b.dataset.role)setRole(b.dataset.role);
+document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(!b)return;if(b.dataset.role)setRole(b.dataset.role);
  if(b.dataset.go==="landing")show("landing");else{setMode(b.dataset.go);show("auth")}});
 $("tSign").onclick=()=>setMode("signup");$("tLog").onclick=()=>setMode("login");
 $("roleSeg").onclick=e=>{if(e.target.dataset.r)setRole(e.target.dataset.r)};
@@ -192,76 +223,96 @@ $("roleSeg").onclick=e=>{if(e.target.dataset.r)setRole(e.target.dataset.r)};
 const MSG={"auth/email-already-in-use":"This email already has an account. Log in instead.","auth/invalid-credential":"Wrong email or password.","auth/weak-password":"Choose a stronger password (6+ characters).","auth/too-many-requests":"Too many tries. Wait a minute and try again.","auth/network-request-failed":"No connection. Check your internet."};
 $("go").onclick=async()=>{
  if(!ready)return err("Add your Firebase keys at the top of the script first.");
- const email=$("em").value.trim(),pw=$("pw").value;
+ const email=$("em").value.trim(),pw=$("pw").value;let name,phone;
  if(!/^\S+@\S+\.\S+$/.test(email))return err("Enter a valid email.");
  if(pw.length<6)return err("Password needs at least 6 characters.");
- let name,phone;
  if(mode==="signup"){name=$("nm").value.trim();phone=$("ph").value.trim();
-  if(name.length<2)return err("Enter your name.");
-  if(!/^\+?[0-9 ]{8,15}$/.test(phone))return err("Enter a valid phone number.")}
+  if(name.length<2)return err("Enter your name.");if(!/^\+?[0-9 ]{8,15}$/.test(phone))return err("Enter a valid phone number.")}
  $("go").disabled=true;err("");
- try{
-  if(mode==="signup"){creating=true;
-   const c=await createUserWithEmailAndPassword(auth,email,pw);
-   profile={name,phone,gov:$("gv").value,role,adCount:0};user=c.user;
-   await setDoc(doc(db,"users",c.user.uid),profile);creating=false;enter();
-  }else await signInWithEmailAndPassword(auth,email,pw);
- }catch(e){creating=false;err(MSG[e.code]||"Something went wrong. Try again.")}
+ try{if(mode==="signup"){creating=true;const c=await createUserWithEmailAndPassword(auth,email,pw);
+   profile={name,phone,gov:$("gv").value,role,adCount:0};user=c.user;await setDoc(doc(db,"users",c.user.uid),profile);creating=false;enter()}
+  else await signInWithEmailAndPassword(auth,email,pw)}
+ catch(e){creating=false;err(MSG[e.code]||"Something went wrong. Try again.")}
  $("go").disabled=false};
-$("forgot").onclick=async()=>{const em=$("em").value.trim();if(!ready||!em)return err("Enter your email first.");
- try{await sendPasswordResetEmail(auth,em);err("Reset link sent. Check your email.")}catch(e){err("Could not send the link.")}};
-
-if(ready)onAuthStateChanged(auth,async u=>{if(creating)return;user=u;
- if(!u)return;
+async function reset(em){if(!ready||!em)return false;try{await sendPasswordResetEmail(auth,em);return true}catch(e){return false}}
+$("forgot").onclick=async()=>err(await reset($("em").value.trim())?"Reset link sent. Check your email.":"Enter your email first.");
+$("resetPw").onclick=async()=>toast(await reset(user?.email)?"Reset link sent to your email":"Could not send the link");
+if(ready)onAuthStateChanged(auth,async u=>{if(creating)return;user=u;if(!u)return;
  const s=await getDoc(doc(db,"users",u.uid));
  if(s.exists()){profile=s.data();enter()}else{await signOut(auth);show("auth");setMode("signup");err("No profile found. Please sign up.")}});
 
-function enter(){
- $("hi").textContent="Hi "+profile.name.split(" ")[0]+" 👋";
- const adv=profile.role==="advertiser";$("post").hidden=!adv;$("vMine").hidden=!adv;
- $("gov").value=profile.gov;setView("feed");show("app");
+function buildNav(){const adv=profile.role==="advertiser";
+ const items=[["feed","🏠","Home"],["saved","❤️","Saved"],...(adv?[["mine","📋","My ads"]]:[]),["profile","👤","Profile"]];
+ $("links").innerHTML=items.map(([t,,l])=>`<button data-tab="${t}">${l}</button>`).join("");
+ const mid=adv?items.slice(0,2).concat([["post","＋","Post"]],items.slice(2)):items;
+ $("tabbar").innerHTML=mid.map(([t,i,l])=>t==="post"?`<button class="plus" id="tbPost"><span>＋</span>${l}</button>`:`<button data-tab="${t}"><span>${i}</span>${l}</button>`).join("");
+ $("tbPost")&&($("tbPost").onclick=openPost);$("post").hidden=!adv}
+function initials(n){return (n||"?").trim().split(/\s+/).map(w=>w[0]).slice(0,2).join("").toUpperCase()}
+function enter(){const adv=profile.role==="advertiser";buildNav();
+ $("hi").textContent="Hi "+profile.name.split(" ")[0]+" 👋";$("avTop").textContent=$("avBig").textContent=initials(profile.name);
+ $("gov").value=ls.get("l2eet_mygov",true)?profile.gov:"";$("myGov").checked=ls.get("l2eet_mygov",true);$("theme").value=ls.get("l2eet_theme","");
+ fillProfile();setTab("feed");show("app");
  unsubs.forEach(f=>f());unsubs=[
   onSnapshot(query(collection(db,"ads"),where("status","==","live")),s=>{live=s.docs.map(d=>({...d.data(),id:d.id}));render()},e=>console.error(e)),
   adv?onSnapshot(query(collection(db,"ads"),where("owner","==",user.uid)),s=>{mine=s.docs.map(d=>({...d.data(),id:d.id}));render()},e=>console.error(e)):()=>{}]}
+function fillProfile(){$("pName").textContent=profile.name;$("pRole").textContent=profile.role==="advertiser"?"Advertiser":"Customer";$("pEmail").textContent=user?.email||"";
+ $("en").value=profile.name;$("ep").value=profile.phone;$("eg").value=profile.gov;$("s1").textContent=profile.adCount||0}
+function setTab(t){tab=t;["feed","saved","mine","profile"].forEach(x=>$("p-"+x).hidden=x!==t);
+ document.querySelectorAll("[data-tab]").forEach(b=>{if(b.dataset.tab)b.toggleAttribute("aria-current",b.dataset.tab===t);b.setAttribute("aria-current",b.dataset.tab===t)});scrollTo(0,0);render()}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(b&&profile)setTab(b.dataset.tab)});
 $("out").onclick=async()=>{unsubs.forEach(f=>f());unsubs=[];live=[];mine=[];profile=null;await signOut(auth);show("landing")};
-function setView(v){view=v;$("feed").hidden=v!=="feed";$("mine").hidden=v!=="mine";render()}
-$("vFeed").onclick=()=>setView("feed");$("vMine").onclick=()=>setView("mine");
-$("chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.dataset.c;
- document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));render()};
-$("q").oninput=render;$("gov").onchange=render;
+$("chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.dataset.c;document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));render()};
+["q","gov","sort"].forEach(i=>$(i).addEventListener("input",render));
 
+$("saveP").onclick=async()=>{const name=$("en").value.trim(),phone=$("ep").value.trim();$("perr").textContent="";
+ if(name.length<2)return $("perr").textContent="Enter your name.";if(!/^\+?[0-9 ]{8,15}$/.test(phone))return $("perr").textContent="Enter a valid phone number.";
+ try{await updateDoc(doc(db,"users",user.uid),{name,phone,gov:$("eg").value});Object.assign(profile,{name,phone,gov:$("eg").value});
+
+  $("hi").textContent="Hi "+name.split(" ")[0]+" 👋";$("avTop").textContent=$("avBig").textContent=initials(name);fillProfile();toast("Profile saved")}
+ catch(x){$("perr").textContent="Could not save. Update your Firestore rules (see firestore.rules)."}};
+$("theme").onchange=e=>theme(e.target.value);
+$("myGov").onchange=e=>{ls.set("l2eet_mygov",e.target.checked);toast("Saved")};
 const wa=p=>{p=String(p).replace(/\D/g,"");if(p.startsWith("0"))p="20"+p.slice(1);return "https://wa.me/"+p};
-function card(a,own){return `<article class="ad" data-c="${esc(a.cat)}"><div class="top"></div><div class="in">
- <span class="meta">${esc(a.cat)} · ${esc(a.gov)}${a.area?" · "+esc(a.area):""}</span>
- <h3>${esc(a.title)}</h3><p>${esc(a.desc)}</p>
- ${a.ends?`<span class="meta" style="color:var(--mute)">Until ${esc(a.ends)}</span>`:""}
- ${own?`<span class="pill ${a.status==="live"?"live":""}">${a.status==="live"?"Live":"Awaiting payment"}</span>`:""}
- <div class="acts">${own?`<button data-del="${esc(a.id)}">Delete</button>`:`<a href="tel:${esc(a.phone)}">Call</a><a class="wa" href="${wa(a.phone)}" target="_blank" rel="noopener">WhatsApp</a>`}</div></div></article>`}
-function render(){
- if(!profile)return;
+const dleft=a=>a.ends?Math.ceil((new Date(a.ends+"T23:59:59")-Date.now())/864e5):null;
+function card(a,own){const d=dleft(a),isNew=Date.now()-a.created<2592e5,sv=saved.includes(a.id);
+ return `<article class="ad" data-c="${esc(a.cat)}" data-id="${esc(a.id)}"><div class="hd"><div class="ico">${EMO[a.cat]||"✨"}</div><div><div class="meta">${esc(a.cat)} · ${esc(a.gov)}${a.area?" · "+esc(a.area):""}</div><h3>${esc(a.title)}</h3></div></div>
+ <p>${esc(a.desc)}</p>
+ <div class="badges">${isNew?'<span class="pill g">New</span>':""}${d!==null?`<span class="pill ${d<=3?"r":""}">${d<=0?"Ends today":d+" days left"}</span>`:""}${own?`<span class="pill ${a.status==="live"?"g":""}">${a.status==="live"?"Live":"Awaiting payment"}</span>`:""}</div>
+ <div class="acts">${own?`<button data-del="${esc(a.id)}">Delete</button>`:`<a href="tel:${esc(a.phone)}">Call</a><a class="wa" href="${wa(a.phone)}" target="_blank" rel="noopener">WhatsApp</a><button class="hrt" data-save="${esc(a.id)}" aria-label="Save">${sv?"❤️":"🤍"}</button>`}</div></article>`}
+function render(){if(!profile)return;
  const today=new Date().toISOString().slice(0,10),q=$("q").value.trim().toLowerCase(),g=$("gov").value;
- const rows=live.filter(a=>(!a.ends||a.ends>=today)&&(!cat||a.cat===cat)&&(!g||a.gov===g)&&(!q||(a.title+a.desc+a.area).toLowerCase().includes(q))).sort((x,y)=>y.created-x.created);
- const my=[...mine].sort((x,y)=>y.created-x.created);
- $("list").innerHTML=rows.map(a=>card(a,false)).join("");$("mlist").innerHTML=my.map(a=>card(a,true)).join("");
- const n=view==="feed"?rows.length:my.length;$("empty").hidden=n>0;
- $("empty").textContent=view==="feed"?"No ads here yet. Try another area or category.":"You have no ads yet. Press Post ad to add your first one for free."}
-document.addEventListener("click",async e=>{const id=e.target.dataset.del;if(!id||!confirm("Delete this ad?"))return;
- try{await deleteDoc(doc(db,"ads",id))}catch(x){alert("Could not delete the ad.")}});
+ let rows=live.filter(a=>(!a.ends||a.ends>=today)&&(!cat||a.cat===cat)&&(!g||a.gov===g)&&(!q||(a.title+a.desc+a.area).toLowerCase().includes(q)));
+ rows.sort($("sort").value==="end"?(x,y)=>(x.ends||"9999").localeCompare(y.ends||"9999"):(x,y)=>y.created-x.created);
+ $("list").innerHTML=rows.length?rows.map(a=>card(a,false)).join(""):'<div class="empty">No ads here yet. Try another area or category.</div>';
+ $("count").textContent=rows.length+" ad"+(rows.length===1?"":"s")+(g?" in "+g:" across Egypt");
+ const sv=live.filter(a=>saved.includes(a.id));$("slist").innerHTML=sv.length?sv.map(a=>card(a,false)).join(""):'<div class="empty">Nothing saved yet. Tap the heart on an ad.</div>';
+ const my=[...mine].sort((x,y)=>y.created-x.created);$("mlist").innerHTML=my.length?my.map(a=>card(a,true)).join(""):'<div class="empty">No ads yet. Tap Post to add your first one free.</div>';
+ $("mcount").textContent=my.length+" total";$("s2").textContent=mine.filter(a=>a.status==="live").length;$("s3").textContent=sv.length}
+document.addEventListener("click",async e=>{
+ const del=e.target.closest("[data-del]"),sv=e.target.closest("[data-save]");
+ if(del){if(confirm("Delete this ad?"))try{await deleteDoc(doc(db,"ads",del.dataset.del));toast("Ad deleted")}catch(x){toast("Could not delete")}return}
+ if(sv){const id=sv.dataset.save;saved=saved.includes(id)?saved.filter(x=>x!==id):[...saved,id];ls.set("l2eet_saved",saved);render();return}
+ if(e.target.closest(".acts a"))return;
+ const c=e.target.closest(".ad");if(c)detail(c.dataset.id)});
+function detail(id){const a=[...live,...mine].find(x=>x.id===id);if(!a)return;
+ $("detBody").innerHTML=`<div class="hd" style="display:flex;gap:12px;align-items:center"><div class="ico" style="width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:1.8rem;background:#12a59422">${EMO[a.cat]||"✨"}</div><div><div class="meta">${esc(a.cat)}</div><h2 style="margin:0;line-height:1.2">${esc(a.title)}</h2></div></div>
+ <p style="white-space:pre-wrap;overflow-wrap:anywhere">${esc(a.desc)||"No extra details."}</p>
+ <p class="sub">📍 ${esc(a.gov)}${a.area?", "+esc(a.area):""}<br>🏪 ${esc(a.by||"Advertiser")}<br>🗓️ Posted ${new Date(a.created).toLocaleDateString()}${a.ends?" · Ends "+esc(a.ends):""}</p>
+ <div class="acts"><a href="tel:${esc(a.phone)}">Call</a><a class="wa" href="${wa(a.phone)}" target="_blank" rel="noopener">WhatsApp</a><button id="shr">Share</button></div>`;
+ $("shr").onclick=async()=>{const txt=a.title+" – "+a.gov+" – "+a.phone;try{if(navigator.share)await navigator.share({title:a.title,text:txt});else{await navigator.clipboard.writeText(txt);toast("Copied")}}catch(x){}};
+ $("det").showModal()}
+$("detX").onclick=()=>$("det").close();
 
-$("post").onclick=()=>{const free=(profile.adCount||0)===0;
+function openPost(){const free=(profile.adCount||0)===0;
  $("fee").textContent=free?"Your first ad is free and goes live right away.":"This is not your first ad. Extra ads are paid. Payments are not live yet, so it is saved as awaiting payment and will not show publicly.";
- $("g").value=profile.gov;$("err").textContent="";$("dlg").showModal()};
-$("cancel").onclick=()=>$("dlg").close();
-$("save").onclick=async()=>{const t=$("t").value.trim();
- if(t.length<5)return $("err").textContent="Add a title of at least 5 characters.";
+ $("g").value=profile.gov;$("err").textContent="";$("dlg").showModal()}
+$("post").onclick=openPost;$("cancel").onclick=()=>$("dlg").close();
+$("save").onclick=async()=>{const t=$("t").value.trim();if(t.length<5)return $("err").textContent="Add a title of at least 5 characters.";
  const free=(profile.adCount||0)===0,ref=doc(collection(db,"ads")),b=writeBatch(db);
- b.set(ref,{title:t,cat:$("c").value,gov:$("g").value,area:$("a").value.trim(),desc:$("d").value.trim(),phone:profile.phone,ends:$("e").value,
-  owner:user.uid,by:profile.name,created:Date.now(),status:free?"live":"awaiting_payment"});
- b.update(doc(db,"users",user.uid),{adCount:increment(1)});
- $("save").disabled=true;
- try{await b.commit();profile.adCount=(profile.adCount||0)+1;["t","a","d","e"].forEach(i=>$(i).value="");$("dlg").close();setView("mine")}
- catch(x){$("err").textContent="Could not save the ad. Try again."}
- $("save").disabled=false};
+ b.set(ref,{title:t,cat:$("c").value,gov:$("g").value,area:$("a").value.trim(),desc:$("d").value.trim(),phone:profile.phone,ends:$("e").value,owner:user.uid,by:profile.name,created:Date.now(),status:free?"live":"awaiting_payment"});
+ b.update(doc(db,"users",user.uid),{adCount:increment(1)});$("save").disabled=true;
+ try{await b.commit();profile.adCount=(profile.adCount||0)+1;fillProfile();["t","a","d","e"].forEach(i=>$(i).value="");$("dlg").close();setTab("mine");toast(free?"Your ad is live!":"Saved, awaiting payment")}
+ catch(x){$("err").textContent="Could not save the ad. Try again."}$("save").disabled=false};
 </script>
 </body>
 </html>
