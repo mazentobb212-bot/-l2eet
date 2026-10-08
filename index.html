@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L2EET – Local ads in Egypt</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5fb;--card:#fff;--ink:#0e1a33;--mute:#5a6785;--lapis:#14307a;--teal:#12a594;--gold:#f0a91b;--line:#dbe2f0;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1226;--card:#141d38;--ink:#eef2fb;--mute:#9aa7c7;--lapis:#7f9cf0;--line:#26335a;--on:#0b1226}}
+:root[data-theme="dark"]{--bg:#0b1226;--card:#141d38;--ink:#eef2fb;--mute:#9aa7c7;--lapis:#7f9cf0;--line:#26335a;--on:#0b1226}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+[hidden]{display:none!important}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{font-weight:900;font-size:1.4rem;letter-spacing:-.5px}
+.logo i{font-style:normal;color:var(--gold)}
+.btn{border:0;border-radius:10px;padding:11px 20px;font-weight:800;background:var(--lapis);color:var(--on)}
+.btn.gold{background:var(--gold);color:#0e1a33}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sm{padding:6px 14px;font-size:.9rem}
+/* landing */
+.hero{background:linear-gradient(160deg,#14307a 0%,#0c1f55 70%);color:#fff;padding-bottom:56px;position:relative;overflow:hidden}
+.hero .logo,.hero .btn.ghost{color:#fff}
+.hero .btn.ghost{border-color:#ffffff55}
+.hero h1{font-size:clamp(2.2rem,7vw,4rem);line-height:1.05;font-weight:900;margin:36px 0 14px;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:1.15rem;max-width:44ch;opacity:.9;margin:0 0 26px}
+.cta{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:620px}
+.role{text-align:left;border:0;border-radius:16px;padding:18px;color:#0e1a33;background:#fff}
+.role.gold{background:var(--gold)}
+.role b{display:block;font-size:1.2rem}
+.role span{font-size:.92rem;opacity:.8}
+.arch{position:absolute;right:-60px;top:70px;width:300px;height:300px;border:34px solid #ffffff12;border-bottom:0;border-radius:150px 150px 0 0}
+.how{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));padding:40px 0 20px}
+.how div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.how h3{margin:0 0 4px}.how p{margin:0;color:var(--mute)}
+.cats{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 40px}
+.cats span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 16px;font-weight:600}
+/* auth */
+.auth{max-width:440px;margin:24px auto 60px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.tabs{display:flex;background:var(--bg);border-radius:10px;padding:4px;margin-bottom:12px}
+.tabs button{flex:1;border:0;background:none;color:var(--mute);border-radius:8px;padding:8px;font-weight:800}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px #0003}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,select,textarea{width:100%;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg button{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:10px;font-weight:700}
+.seg button[aria-pressed=true]{border-color:var(--teal);background:#12a59422}
+.err{color:#d6453b;min-height:1.4em;margin:8px 0 0}
+.fine{color:var(--mute);font-size:.82rem;margin-top:10px}
+/* app */
+.app-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 10px}
+.bar input{flex:2 1 200px;width:auto}.bar select{flex:1 1 150px;width:auto}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px}
+.chip{flex:none;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:5px 15px;font-weight:600}
+.chip[aria-pressed=true]{background:var(--lapis);border-color:var(--lapis);color:var(--on)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));padding-bottom:50px}
+.ad{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.ad .top{height:8px;background:var(--teal)}
+.ad[data-c="Discounts"] .top{background:var(--gold)}
+.ad[data-c="Teachers"] .top{background:var(--lapis)}
+.ad[data-c="Courses"] .top{background:#8a5cf6}
+.ad .in{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.ad h3{margin:0;font-size:1.15rem;line-height:1.25}
+.ad p{margin:0;color:var(--mute);overflow-wrap:anywhere}
+.meta{font-size:.82rem;font-weight:600;color:var(--teal)}
+.acts{display:flex;gap:8px;margin-top:auto;padding-top:8px}
+.acts a,.acts button{flex:1;text-align:center;text-decoration:none;border-radius:9px;padding:8px;font-weight:700;font-size:.92rem;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.acts a.wa{background:#1fa855;border-color:#1fa855;color:#fff}
+.empty{text-align:center;color:var(--mute);padding:40px 10px}
+.pill{font-size:.75rem;border-radius:6px;padding:1px 8px;font-weight:700;background:#f0a91b33;color:var(--ink);align-self:flex-start}
+.pill.live{background:#12a59433}
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);width:min(480px,94vw);padding:22px}
+dialog::backdrop{background:#0009}
+.row{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.note{background:#f0a91b22;border:1px solid var(--gold);border-radius:10px;padding:8px 12px;font-size:.9rem}
+.demo{background:var(--gold);color:#0e1a33;text-align:center;padding:6px 10px;font-size:.85rem;font-weight:600}
+</style>
+</head>
+<body>
+<div id="demo" class="demo" hidden>Setup needed: paste your Firebase keys at the top of the script (see the setup steps).</div>
+
+<!-- LANDING -->
+<section id="landing">
+<div class="hero"><div class="arch"></div><div class="wrap">
+<nav class="nav"><span class="logo">L2<i>EET</i></span><button class="btn ghost sm" data-go="login">Log in</button></nav>
+<h1>What's new <em>near you</em> in Egypt.</h1>
+<p>New store openings, discounts, teachers and courses in your area. One place, no scrolling through noise.</p>
+<div class="cta">
+<button class="role" data-go="signup" data-role="customer"><b>I'm looking for deals</b><span>Browse ads near you</span></button>
+<button class="role gold" data-go="signup" data-role="advertiser"><b>I want to post an ad</b><span>Your first ad is free</span></button>
+</div></div></div>
+<div class="wrap">
+<div class="how">
+<div><h3>Find</h3><p>Pick your governorate and see only what is close to you.</p></div>
+<div><h3>Contact</h3><p>Call or message the advertiser on WhatsApp straight from the ad.</p></div>
+<div><h3>Advertise</h3><p>Shops, tutors and academies post in minutes. First ad free, extra ads paid.</p></div>
+</div>
+<div class="cats"><span>Discounts</span><span>Teachers</span><span>Courses</span><span>New stores</span><span>Other</span></div>
+</div></section>
+
+<!-- AUTH -->
+<section id="auth" hidden><div class="wrap">
+<nav class="nav"><button class="logo" style="background:none;border:0;color:var(--ink)" data-go="landing">L2<i>EET</i></button></nav>
+<div class="auth">
+<div class="tabs" role="tablist"><button role="tab" id="tSign" aria-selected="true">Sign up</button><button role="tab" id="tLog" aria-selected="false">Log in</button></div>
+<label for="em">Email</label><input id="em" type="email" autocomplete="email">
+<label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" minlength="6">
+<div id="signForm">
+<label>I am a</label>
+<div class="seg" id="roleSeg"><button type="button" data-r="customer" aria-pressed="true">Customer</button><button type="button" data-r="advertiser" aria-pressed="false">Advertiser</button></div>
+<label for="nm">Your name or shop name</label><input id="nm" maxlength="50" autocomplete="name">
+<label for="ph">Phone number</label><input id="ph" inputmode="tel" placeholder="01xxxxxxxxx" autocomplete="tel">
+<label for="gv">Governorate</label><select id="gv"></select>
+</div>
+<p class="err" id="aerr"></p>
+<button class="btn" style="width:100%" id="go">Create account</button>
+<p class="fine"><button type="button" id="forgot" style="background:none;border:0;color:var(--lapis);padding:0;font-weight:600;text-decoration:underline">Forgot password?</button></p>
+</div></div></section>
+
+<!-- APP -->
+<section id="app" hidden>
+<div class="app-nav"><div class="wrap"><nav class="nav">
+<span class="logo">L2<i>EET</i></span>
+<span style="display:flex;gap:8px;align-items:center">
+<button class="btn ghost sm" id="vFeed">Browse</button>
+<button class="btn ghost sm" id="vMine">My ads</button>
+<button class="btn gold sm" id="post">+ Post ad</button>
+<button class="btn ghost sm" id="out">Log out</button></span></nav></div></div>
+<div class="wrap">
+<h2 id="hi" style="margin:20px 0 0"></h2>
+<div id="feed">
+<div class="bar"><input id="q" type="search" placeholder="Search ads" aria-label="Search ads"><select id="gov" aria-label="Governorate"></select></div>
+<div class="chips" id="chips"></div>
+<div class="grid" id="list"></div>
+</div>
+<div id="mine" hidden><div class="grid" id="mlist" style="padding-top:14px"></div></div>
+<div class="empty" id="empty" hidden></div>
+</div></section>
+
+<dialog id="dlg">
+<h2 style="margin:0 0 8px">Post an ad</h2>
+<div class="note" id="fee"></div>
+<label for="t">Title</label><input id="t" maxlength="80" placeholder="e.g. New branch opening: 30% off">
+<label for="c">Category</label><select id="c"></select>
+<label for="g">Governorate</label><select id="g"></select>
+<label for="a">Area</label><input id="a" maxlength="80" placeholder="e.g. Dokki, near the metro">
+<label for="d">Details</label><textarea id="d" rows="3" maxlength="400"></textarea>
+<label for="e">Ad ends on</label><input id="e" type="date">
+<p class="err" id="err"></p>
+<div class="row"><button class="btn ghost" id="cancel">Cancel</button><button class="btn" id="save">Publish ad</button></div>
+</dialog>
+
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import{getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged,sendPasswordResetEmail}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import{getFirestore,doc,getDoc,setDoc,collection,query,where,onSnapshot,writeBatch,deleteDoc,increment}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* 1. PASTE YOUR FIREBASE KEYS HERE (Firebase console > Project settings > Your apps > Web) */
+const CFG={apiKey:"AIzaSyAAeIErZDUewVsUTBG3N6Xn9FG9LRaV7yc",authDomain:"l2eet-55c5c.firebaseapp.com",projectId:"l2eet-55c5c",appId:"1:219353973551:web:6d511c317531ffb90757da"};
+
+const CATS=["Discounts","Teachers","Courses","New stores","Other"];
+const GOVS=["Cairo","Giza","Alexandria","Qalyubia","Dakahlia","Sharqia","Gharbia","Monufia","Beheira","Port Said","Suez","Ismailia","Fayoum","Beni Suef","Minya","Asyut","Sohag","Qena","Luxor","Aswan","Red Sea","Damietta","Kafr El Sheikh","Matrouh","North Sinai","South Sinai","New Valley"];
+const $=id=>document.getElementById(id);
+const opts=(a,f)=>(f?`<option value="">${f}</option>`:"")+a.map(x=>`<option>${x}</option>`).join("");
+const ready=!Object.values(CFG).some(v=>v.startsWith("PASTE"));
+let auth,db,user=null,profile=null,live=[],mine=[],unsubs=[],mode="signup",role="customer",cat="",view="feed",creating=false;
+if(ready){const app=initializeApp(CFG);auth=getAuth(app);db=getFirestore(app)}else $("demo").hidden=false;
+
+$("gv").innerHTML=opts(GOVS);$("g").innerHTML=opts(GOVS);$("gov").innerHTML=opts(GOVS,"All of Egypt");$("c").innerHTML=opts(CATS);
+$("chips").innerHTML=["All",...CATS].map((c,i)=>`<button class="chip" data-c="${i?c:""}" aria-pressed="${!i}">${c}</button>`).join("");
+const esc=s=>{const d=document.createElement("div");d.textContent=s??"";return d.innerHTML};
+const err=m=>$("aerr").textContent=m;
+function show(n){["landing","auth","app"].forEach(s=>$(s).hidden=s!==n);scrollTo(0,0)}
+function setMode(m){mode=m;$("tSign").setAttribute("aria-selected",m==="signup");$("tLog").setAttribute("aria-selected",m==="login");
+ $("signForm").hidden=m!=="signup";$("go").textContent=m==="signup"?"Create account":"Log in";$("pw").autocomplete=m==="signup"?"new-password":"current-password";err("")}
+function setRole(r){role=r;document.querySelectorAll("#roleSeg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.r===r))}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(!b)return;
+ if(b.dataset.role)setRole(b.dataset.role);
+ if(b.dataset.go==="landing")show("landing");else{setMode(b.dataset.go);show("auth")}});
+$("tSign").onclick=()=>setMode("signup");$("tLog").onclick=()=>setMode("login");
+$("roleSeg").onclick=e=>{if(e.target.dataset.r)setRole(e.target.dataset.r)};
+
+const MSG={"auth/email-already-in-use":"This email already has an account. Log in instead.","auth/invalid-credential":"Wrong email or password.","auth/weak-password":"Choose a stronger password (6+ characters).","auth/too-many-requests":"Too many tries. Wait a minute and try again.","auth/network-request-failed":"No connection. Check your internet."};
+$("go").onclick=async()=>{
+ if(!ready)return err("Add your Firebase keys at the top of the script first.");
+ const email=$("em").value.trim(),pw=$("pw").value;
+ if(!/^\S+@\S+\.\S+$/.test(email))return err("Enter a valid email.");
+ if(pw.length<6)return err("Password needs at least 6 characters.");
+ let name,phone;
+ if(mode==="signup"){name=$("nm").value.trim();phone=$("ph").value.trim();
+  if(name.length<2)return err("Enter your name.");
+  if(!/^\+?[0-9 ]{8,15}$/.test(phone))return err("Enter a valid phone number.")}
+ $("go").disabled=true;err("");
+ try{
+  if(mode==="signup"){creating=true;
+   const c=await createUserWithEmailAndPassword(auth,email,pw);
+   profile={name,phone,gov:$("gv").value,role,adCount:0};user=c.user;
+   await setDoc(doc(db,"users",c.user.uid),profile);creating=false;enter();
+  }else await signInWithEmailAndPassword(auth,email,pw);
+ }catch(e){creating=false;err(MSG[e.code]||"Something went wrong. Try again.")}
+ $("go").disabled=false};
+$("forgot").onclick=async()=>{const em=$("em").value.trim();if(!ready||!em)return err("Enter your email first.");
+ try{await sendPasswordResetEmail(auth,em);err("Reset link sent. Check your email.")}catch(e){err("Could not send the link.")}};
+
+if(ready)onAuthStateChanged(auth,async u=>{if(creating)return;user=u;
+ if(!u)return;
+ const s=await getDoc(doc(db,"users",u.uid));
+ if(s.exists()){profile=s.data();enter()}else{await signOut(auth);show("auth");setMode("signup");err("No profile found. Please sign up.")}});
+
+function enter(){
+ $("hi").textContent="Hi "+profile.name.split(" ")[0]+" 👋";
+ const adv=profile.role==="advertiser";$("post").hidden=!adv;$("vMine").hidden=!adv;
+ $("gov").value=profile.gov;setView("feed");show("app");
+ unsubs.forEach(f=>f());unsubs=[
+  onSnapshot(query(collection(db,"ads"),where("status","==","live")),s=>{live=s.docs.map(d=>({...d.data(),id:d.id}));render()},e=>console.error(e)),
+  adv?onSnapshot(query(collection(db,"ads"),where("owner","==",user.uid)),s=>{mine=s.docs.map(d=>({...d.data(),id:d.id}));render()},e=>console.error(e)):()=>{}]}
+$("out").onclick=async()=>{unsubs.forEach(f=>f());unsubs=[];live=[];mine=[];profile=null;await signOut(auth);show("landing")};
+function setView(v){view=v;$("feed").hidden=v!=="feed";$("mine").hidden=v!=="mine";render()}
+$("vFeed").onclick=()=>setView("feed");$("vMine").onclick=()=>setView("mine");
+$("chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.dataset.c;
+ document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));render()};
+$("q").oninput=render;$("gov").onchange=render;
+
+const wa=p=>{p=String(p).replace(/\D/g,"");if(p.startsWith("0"))p="20"+p.slice(1);return "https://wa.me/"+p};
+function card(a,own){return `<article class="ad" data-c="${esc(a.cat)}"><div class="top"></div><div class="in">
+ <span class="meta">${esc(a.cat)} · ${esc(a.gov)}${a.area?" · "+esc(a.area):""}</span>
+ <h3>${esc(a.title)}</h3><p>${esc(a.desc)}</p>
+ ${a.ends?`<span class="meta" style="color:var(--mute)">Until ${esc(a.ends)}</span>`:""}
+ ${own?`<span class="pill ${a.status==="live"?"live":""}">${a.status==="live"?"Live":"Awaiting payment"}</span>`:""}
+ <div class="acts">${own?`<button data-del="${esc(a.id)}">Delete</button>`:`<a href="tel:${esc(a.phone)}">Call</a><a class="wa" href="${wa(a.phone)}" target="_blank" rel="noopener">WhatsApp</a>`}</div></div></article>`}
+function render(){
+ if(!profile)return;
+ const today=new Date().toISOString().slice(0,10),q=$("q").value.trim().toLowerCase(),g=$("gov").value;
+ const rows=live.filter(a=>(!a.ends||a.ends>=today)&&(!cat||a.cat===cat)&&(!g||a.gov===g)&&(!q||(a.title+a.desc+a.area).toLowerCase().includes(q))).sort((x,y)=>y.created-x.created);
+ const my=[...mine].sort((x,y)=>y.created-x.created);
+ $("list").innerHTML=rows.map(a=>card(a,false)).join("");$("mlist").innerHTML=my.map(a=>card(a,true)).join("");
+ const n=view==="feed"?rows.length:my.length;$("empty").hidden=n>0;
+ $("empty").textContent=view==="feed"?"No ads here yet. Try another area or category.":"You have no ads yet. Press Post ad to add your first one for free."}
+document.addEventListener("click",async e=>{const id=e.target.dataset.del;if(!id||!confirm("Delete this ad?"))return;
+ try{await deleteDoc(doc(db,"ads",id))}catch(x){alert("Could not delete the ad.")}});
+
+$("post").onclick=()=>{const free=(profile.adCount||0)===0;
+ $("fee").textContent=free?"Your first ad is free and goes live right away.":"This is not your first ad. Extra ads are paid. Payments are not live yet, so it is saved as awaiting payment and will not show publicly.";
+ $("g").value=profile.gov;$("err").textContent="";$("dlg").showModal()};
+$("cancel").onclick=()=>$("dlg").close();
+$("save").onclick=async()=>{const t=$("t").value.trim();
+ if(t.length<5)return $("err").textContent="Add a title of at least 5 characters.";
+ const free=(profile.adCount||0)===0,ref=doc(collection(db,"ads")),b=writeBatch(db);
+ b.set(ref,{title:t,cat:$("c").value,gov:$("g").value,area:$("a").value.trim(),desc:$("d").value.trim(),phone:profile.phone,ends:$("e").value,
+  owner:user.uid,by:profile.name,created:Date.now(),status:free?"live":"awaiting_payment"});
+ b.update(doc(db,"users",user.uid),{adCount:increment(1)});
+ $("save").disabled=true;
+ try{await b.commit();profile.adCount=(profile.adCount||0)+1;["t","a","d","e"].forEach(i=>$(i).value="");$("dlg").close();setView("mine")}
+ catch(x){$("err").textContent="Could not save the ad. Try again."}
+ $("save").disabled=false};
+</script>
+</body>
+</html>
